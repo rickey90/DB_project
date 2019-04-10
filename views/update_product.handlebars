@@ -1,0 +1,10 @@
+<html>
+	<h3>Update {{oneProd.p_name}}</h3>
+	<form id="update_product" action="/product" method="post">
+		Product Name: <input type="text" name="p_name" value="{{oneProd.p_name}}"><br>
+		Quantity: <input type="number" name="p_qty" value="{{oneProd.p_qty}}"><br>
+		Manufacturer: <input type="text" name="p_mfg" value="{{oneProd.p_mfg}}"><br>
+		Price: <input type="number" min="1" step="any" name="price" value="{{oneProd.price}}"><br>
+	</form>
+	<button onclick="updateProduct({{oneProd.p_id}})">Update</button>
+</html>

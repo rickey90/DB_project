@@ -1,0 +1,36 @@
+<html>
+	<div>
+		<h3>Add Product To a Category</h3>
+		<form id="add_prod_cat" action="/product_category" method="post">
+			Product: <select name="p_id">
+				{{#each product}}
+					<option value="{{p_id}}">{{p_name}}</option>
+				{{/each}}
+			</select>
+			Category: <select name="cat_id">
+				{{#each category}}
+					<option value="{{cat_id}}">{{cat_name}}</option>
+				{{/each}}
+			</select>			
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+	<div>
+		<h3>Products and their Categories</h3>
+		<table>
+			<thead>
+				<th>Product</th>
+				<th>Category</th>
+			</thead>
+			<tbody>
+				{{#each product_category}}
+				<tr>
+					<td>{{p_name}}</td>
+					<td>{{cat_name}}</td>
+					<td><button onclick="deleteProdCat({{p_id}}, {{cat_id}})">Delete</button></td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</html>

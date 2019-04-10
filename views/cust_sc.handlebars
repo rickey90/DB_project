@@ -1,0 +1,36 @@
+<html>
+	<div>
+		<h3>View Products in Customer's Shopping Cart</h3>
+		<form id="cust_sc" action="/cust_sc" method="post">
+			Customer: <select name="cust_id">
+				{{#each customer}}
+					<option value="{{cust_id}}">{{f_name}} {{l_name}}</option>
+				{{/each}} 
+			</select>
+			<br><input type="submit" value="Submit">
+		</form>
+	</div>
+	<div>
+		{{#if hasCart}}
+			{{#if select.f_name}}
+				<h3>Products in {{select.f_name}} {{select.l_name}}'s Shopping Cart</h3>
+				<table>
+					<thead>
+						<th>Product Name</th>
+						<th>Price</th>
+					</thead>
+					<tbody>
+						{{#each product}}
+						<tr>
+							<td>{{p_name}}</td>
+							<td>${{price}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			{{else}}
+				<h3>Customer's Cart is Empty.</h3>
+			{{/if}}
+		{{/if}}
+	</div>
+</html>

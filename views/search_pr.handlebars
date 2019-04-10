@@ -1,0 +1,35 @@
+<html>
+<body>
+	<div>
+		<h3>View Purchase Records of Customer</h3>
+		<form id="view_pr" action="/search_pr" method="post">
+			Customer: <select name="cust_id">
+				{{#each customer}}
+					<option value="{{cust_id}}">{{f_name}} {{l_name}}</option>
+				{{/each}} 
+			</select>
+			<br><input type="submit" value="Submit">
+		</form>
+	</div>
+	<div>
+		{{#if select}}
+		<h3>Purchase Records for {{select.f_name}} {{select.l_name}}</h3>
+		<table>
+			<thead>
+				<th>Purchase ID</th>
+				<th>Date</th>
+				<th>Time</th>
+			</thead>
+			<tbody>
+				{{#each record}}
+				<tr>
+					<td>{{purchase_id}}</td>
+					<td>{{date}}</td>
+					<td>{{time}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+		{{/if}}
+	</div>
+</html>

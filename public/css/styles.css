@@ -1,0 +1,30 @@
+
+body {
+	background-color: #CBD0D5;
+	font-family: "Lato", sans-serif;
+}
+
+table {
+    	border-collapse: collapse;
+	width: 60%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    height: 30px;
+	padding: 3px;
+}
+
+th {
+	background-color: lightgrey;
+}
+
+tr:hover{
+	background-color: #E1DADA;
+}
+
+tr {
+	background-color:skyblue;
+}
+
+

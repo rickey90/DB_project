@@ -1,0 +1,36 @@
+
+<html>
+	<div>
+		<h2>Add Shopping Cart To Customer</h2>
+		{{#if noCart}}
+			<form id="add_cart_customer" action="/shopping_cart" method="post">
+				Customer: <select name="cust_id">
+					{{#each noCart}}
+						<option value="{{cust_id}}">{{f_name}} {{l_name}}</option>
+					{{/each}}
+				</select>
+				<br><input type="submit" value="Submit">
+			</form>
+		{{else}}
+			<h5> All customers have a shopping cart. Add a new customer and then come back to add a shopping cart for them! </h5>
+		{{/if}}
+	</div>
+	<div>
+		<h2>Customer Shopping Carts</h2>
+		<table>
+			<thead>
+				<th>Customer Name</th>
+				<th>Shopping Cart Total</th>
+			</thead>
+			<tbody>
+				{{#each customer}}
+				<tr>
+					<td>{{f_name}} {{l_name}}</td>
+					<td>${{total}}</td>
+					<td><button onclick="deleteCart({{cust_id}})">Delete</button></td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</html>

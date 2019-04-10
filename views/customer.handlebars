@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<h3>Add New Customer</h3>
+		<form id="addcust" action="/customer" method="post">
+			First name: <input type="text" name="f_name"><br>
+			Last name: <input type="text" name="l_name"><br>
+			Email Address: <input type="text" name="email"><br>
+			Phone Number: <input type="text" name="ph_num"><br>
+			Street Address: <input type="text" name="street_address"><br>
+			City: <input type="text" name="city"><br>
+			State: <input type="text" name="state"><br>
+			Zip Code: <input type="number" name="zip"><br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+	<h3>Current Customers</h3>
+	<table>
+		<thead>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Phone Number</th>
+			<th>Street</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip</th>
+		</thead>
+		<tbody>
+			{{#each customer}}
+			<tr>
+				<td>{{f_name}}</td>
+				<td>{{l_name}}</td>
+				<td>{{email}}</td>
+				<td>{{ph_num}}</td>
+				<td>{{street_address}}</td>
+				<td>{{city}}</td>
+				<td>{{state}}</td>
+				<td>{{zip}}</td>
+				<td><button onclick="deleteCustomer({{cust_id}})">Delete</button></td>
+				<td><button onclick="location.href='/customer/{{cust_id}}'">Update</button></td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</body>
+</html>

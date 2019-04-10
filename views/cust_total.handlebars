@@ -1,0 +1,18 @@
+<html>
+	<div>
+		<h3>View Total in Customer Cart</h3>
+		<form id="cust_total" action="/cust_total" method="post">
+			Customer: <select name="cust_id">
+				{{#each customer}}
+					<option value="{{cust_id}}">{{f_name}} {{l_name}}</option>
+				{{/each}}
+			</select>
+			<br><input type="submit" value="Submit">
+		</form>
+	</div>
+	<div>
+		{{#if select}}
+		<h3>Total for {{total.f_name}} {{total.l_name}}: ${{total.total}}</h3>
+		{{/if}}
+	</div>
+</html>

@@ -1,0 +1,41 @@
+<html>
+
+	<div>
+		<h3>Add Product to a Purchase Record</h3>
+		<form id="add_pr" action="/precord_product" method="post">
+			Purchase Record ID: <select name="purchase_id">
+				{{#each record}}
+					<option value="{{purchase_id}}">{{purchase_id}}</option>
+				{{/each}} 
+			</select><br>
+			Product: <select name="p_id">
+				{{#each product}}
+					<option value="{{p_id}}">{{p_name}}</option>
+				{{/each}} 
+			</select><br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>		
+	<div>
+		<h3>Current Products in Purchase Records</h3>
+		<table>
+			<thead>
+				<th>Purchase Record ID</th>
+				<th>Customer Name</th>
+				<th>Product</th>
+				<th>Price Paid</th>
+			</thead>
+			<tbody>
+				{{#each precord_product}}
+				<tr>
+					<td>{{purchase_id}}</td>
+					<td>{{f_name}} {{l_name}}</td>
+					<td>{{p_name}}</td>
+					<td>${{price}}</td>
+					<td><button onclick="deleteRecProd({{purchase_id}}, {{p_id}})">Delete</button></td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</html>

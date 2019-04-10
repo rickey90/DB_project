@@ -1,0 +1,40 @@
+<html>
+	<div>
+		<h3>Search Products by Category</h3>
+		<form id="search_cat" action="/search_cat" method="post">
+			Category: <select name="cat_id">
+				{{#each category}}
+					<option value="{{cat_id}}">{{cat_name}}</option>
+				{{/each}} 
+			</select>
+			<br><input type="submit" value="Submit">
+		</form>
+	</div>
+	<div>
+		{{#if exists}}
+			{{#if select}}
+				<h3>Products in {{select.cat_name}} Category</h3>
+				<table>
+					<thead>
+						<th>Product Name</th>
+						<th>Quantity</th>
+						<th>Manufacturer</th>
+						<th>Price</th>
+					</thead>
+					<tbody>
+						{{#each product}}
+						<tr>
+							<td>{{p_name}}</td>
+							<td>{{p_qty}}</td>
+							<td>{{p_mfg}}</td>
+							<td>${{price}}</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			{{else}}
+				<h3>No Products in this Category</h3>
+			{{/if}}
+		{{/if}}
+	</div>
+</html>

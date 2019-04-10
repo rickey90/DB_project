@@ -1,0 +1,25 @@
+<html>
+	<div>
+		<h3>Add a Product Category</h3>
+		<form id="add_category" action="/category" method="post">
+			Category Name: <input type="text" name="cat_name"><br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+	<div>
+		<h3>Current Product Categories</h3>
+		<table>
+			<thead>
+				<th>Category</th>
+			</thead>
+			<tbody>
+				{{#each category}}
+				<tr>
+					<td>{{cat_name}}</td>
+					<td><button onclick="deleteCat({{cat_id}})">Delete</button></td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>		
+</html>

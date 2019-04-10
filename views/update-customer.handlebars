@@ -1,0 +1,14 @@
+<html>
+	<h3>Update {{oneCust.f_name}} {{oneCust.l_name}}</h3>
+	<form id="update-customer" action="/customer" method="post">
+		First name: <input type="text" name="f_name" value="{{oneCust.f_name}}"><br>
+		Last name: <input type="text" name="l_name" value="{{oneCust.l_name}}"><br>
+		Email Address: <input type="text" name="email" value="{{oneCust.email}}"><br>
+		Phone Number: <input type="text" name="ph_num" value="{{oneCust.ph_num}}"><br>
+		Street Address: <input type="text" name="street_address" value="{{oneCust.street_address}}"><br>
+		City: <input type="text" name="city" value="{{oneCust.city}}"><br>
+		State: <input type="text" name="state" value="{{oneCust.state}}"><br>
+		Zip Code: <input type="number" name="zip" value="{{oneCust.zip}}"><br>
+	</form>
+	<button onclick="updateCustomer({{oneCust.cust_id}})">Update</button>
+</html>

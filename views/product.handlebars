@@ -1,0 +1,35 @@
+<html>
+	<div>
+		<h3>Add a Product</h3>
+		<form id="addProduct" action="/product" method="post">
+			Product Name: <input type="text" name="p_name"><br>
+			Quantity: <input type="number" name="p_qty"><br>
+			Manufacturer: <input type="text" name="p_mfg"><br>
+			Price: <input type="number" min="1" step="any" name="price"><br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+	<div>
+		<h3>Current Products</h3>
+		<table>
+			<thead>
+				<th>Product Name</th>
+				<th>Quantity</th>
+				<th>Manufacturer</th>
+				<th>Price</th>
+			</thead>
+			<tbody>
+				{{#each product}}
+				<tr>
+					<td>{{p_name}}</td>
+					<td>{{p_qty}}</td>
+					<td>{{p_mfg}}</td>
+					<td>${{price}}</td>
+					<td><button onclick="deleteProd({{p_id}})">Delete</button></td>
+					<td><button onclick="location.href='/product/{{p_id}}'">Update</button></td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>		
+</html>

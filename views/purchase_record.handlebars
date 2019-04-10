@@ -1,0 +1,37 @@
+<html>
+	<div>
+		<h3>Add Customer Purchase Record</h3>
+		<form id="add_pr" action="/purchase_record" method="post">
+			Customer: <select name="cust_id">
+				{{#each customer}}
+					<option value="{{cust_id}}">{{f_name}} {{l_name}}</option>
+				{{/each}} 
+			</select><br>
+			Purchase Date: <input type="date" name="date"><br>
+			Purchase Time: <input type="time" name="time"><br>
+			<input type="submit" value="Submit" onclick="javascript: alert('This will Submit the data')">
+		</form>
+	</div>
+	<div>
+		<h3>Current Purchase Records</h3>
+		<table>
+			<thead>
+				<th>Purchase Record ID</th>
+				<th>Customer Name</th>
+				<th>Purchase Date</th>
+				<th>Purchase Time</th>
+			</thead>
+			<tbody>
+				{{#each purchase_record}}
+				<tr>
+					<td>{{purchase_id}}</td>
+					<td>{{f_name}} {{l_name}}</td>
+					<td>{{date}}</td>
+					<td>{{time}}</td>
+					<td><button onclick="deletePurRec({{purchase_id}}, {{cust_id}})">Delete</button></td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</html>
